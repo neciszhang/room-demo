@@ -1,3 +1,3 @@
 import {defineConfig} from 'vite';
 import react from '@vitejs/plugin-react';
-export default defineConfig(({command})=>({base:command==='build'?'/room-demo/':'/',plugins:[react()],server:{host:'0.0.0.0',port:5198},build:{chunkSizeWarningLimit:1500}}));
+export default defineConfig(({command,isPreview})=>({base:(command==='build'||isPreview)?'/room-demo/':'/',plugins:[react()],server:{host:'0.0.0.0',port:5198},build:{chunkSizeWarningLimit:1500}}));
