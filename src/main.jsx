@@ -9,7 +9,7 @@ function initial(){try{const raw=JSON.parse(localStorage.getItem(storageKey)||'n
 function App(){
  const [saved]=useState(initial);
  const [counts,setCounts]=useState(saved.counts),[active,setActive]=useState(saved.activated),[ready,setReady]=useState(false),[toast,setToast]=useState(''),[drag,setDrag]=useState(null),[flight,setFlight]=useState(null),[over,setOver]=useState(false),[menu,setMenu]=useState(false),[focus,setFocus]=useState(null),[viewReset,setViewReset]=useState(0);
- const zone=useRef(),scrollTimer=useRef(),api=useRef(),gesture=useRef(),lastDrag=useRef(0),timer=useRef(),flightTimer=useRef(),focusTimer=useRef(),flightLock=useRef(false);
+ const collection=useRef(),touchHandlers=useRef(),zone=useRef(),scrollTimer=useRef(),api=useRef(),gesture=useRef(),lastDrag=useRef(0),timer=useRef(),flightTimer=useRef(),focusTimer=useRef(),flightLock=useRef(false);
  const exhausted=items.every(i=>counts[i.id]===0);
  const notify=useCallback(t=>{setToast(t);clearTimeout(timer.current);timer.current=setTimeout(()=>setToast(''),2200)},[]);
  useEffect(()=>()=>{clearTimeout(timer.current);clearTimeout(flightTimer.current);clearTimeout(focusTimer.current);clearTimeout(scrollTimer.current)},[]);
@@ -29,9 +29,43 @@ function App(){
   },540);
  }
  function inZone(x,y){const r=zone.current.getBoundingClientRect();return x>=r.left&&x<=r.right&&y>=r.top+42&&y<=r.bottom-28}
- function down(e,item){if(!ready||counts[item.id]<=0||flightLock.current)return;e.currentTarget.setPointerCapture(e.pointerId);gesture.current={id:item.id,x:e.clientX,y:e.clientY,moved:false}}
+ function down(e,item){if(e.pointerType==='touch')return;if(!ready||counts[item.id]<=0||flightLock.current)return;e.currentTarget.setPointerCapture(e.pointerId);gesture.current={id:item.id,x:e.clientX,y:e.clientY,moved:false}}
  function move(e){const g=gesture.current;if(!g)return;if(Math.hypot(e.clientX-g.x,e.clientY-g.y)>8)g.moved=true;if(!g.moved)return;setDrag({id:g.id,x:e.clientX,y:e.clientY});const isOver=inZone(e.clientX,e.clientY);setOver(isOver);highlight(isOver?g.id:null)}
- useEffect(()=>{if(!drag)return;let raf;const scroll=()=>{const amount=drag.y<95?-10:drag.y>innerHeight-55?8:0;if(amount){window.scrollBy(0,amount);setOver(inZone(drag.x,drag.y))}raf=requestAnimationFrame(scroll)};raf=requestAnimationFrame(scroll);return()=>cancelAnimationFrame(raf)},[drag]);
+ // Native non-passive touchmove lets a deliberate long press drag, while ordinary swipes scroll.
+ touchHandlers.current={canDrag:id=>ready&&counts[id]>0&&!flightLock.current,
+  start:(id,x,y)=>{gesture.current={id,x,y,moved:true};setDrag({id,x,y});highlight(id)},
+  move,end,cancel:()=>{clearDrag();setFocus(null)},suppress:()=>{lastDrag.current=Date.now()}};
+ useEffect(()=>{
+  const list=collection.current;let touch=null,hold;
+  const cancel=()=>{clearTimeout(hold);if(touch?.armed)touchHandlers.current.cancel();touch=null};
+  const start=e=>{
+   cancel();if(e.touches.length!==1)return;
+   const card=e.target.closest('[data-item]');if(!card)return;
+   const t=e.touches[0];touch={id:t.identifier,item:card.dataset.item,x:t.clientX,y:t.clientY,armed:false};
+   if(touchHandlers.current.canDrag(touch.item))hold=setTimeout(()=>{
+    if(!touch)return;touch.armed=true;touchHandlers.current.suppress();
+    touchHandlers.current.start(touch.item,touch.x,touch.y);
+   },300);
+  };
+  const moveTouch=e=>{
+   if(!touch)return;if(e.touches.length!==1){cancel();return}
+   const t=Array.from(e.touches).find(t=>t.identifier===touch.id);if(!t)return;
+   if(touch.armed){e.preventDefault();touchHandlers.current.move(t)}
+   else if(Math.hypot(t.clientX-touch.x,t.clientY-touch.y)>8){clearTimeout(hold);touchHandlers.current.suppress();touch=null}
+  };
+  const endTouch=e=>{
+   clearTimeout(hold);if(!touch)return;
+   const t=Array.from(e.changedTouches).find(t=>t.identifier===touch.id);
+   if(touch.armed&&t){e.preventDefault();touchHandlers.current.end(t)}
+   touch=null;
+  };
+  list.addEventListener('touchstart',start,{passive:true});
+  list.addEventListener('touchmove',moveTouch,{passive:false});
+  list.addEventListener('touchend',endTouch,{passive:false});
+  list.addEventListener('touchcancel',cancel);
+  const context=e=>e.preventDefault();list.addEventListener('contextmenu',context);
+  return()=>{cancel();list.removeEventListener('touchstart',start);list.removeEventListener('touchmove',moveTouch);list.removeEventListener('touchend',endTouch);list.removeEventListener('touchcancel',cancel);list.removeEventListener('contextmenu',context)};
+ },[]);
  function clearDrag(){gesture.current=null;setDrag(null);setOver(false)}
  function end(e){const g=gesture.current;if(!g)return;if(g.moved){lastDrag.current=Date.now();if(inZone(e.clientX,e.clientY))snap(g.id,{x:e.clientX,y:e.clientY});else{setFocus(null);notify('拖入小屋后松手，卡片会自动飞向对应位置')}}clearDrag()}
  function reset(){clearTimeout(scrollTimer.current);clearTimeout(flightTimer.current);clearTimeout(focusTimer.current);flightLock.current=false;setFlight(null);clearDrag();setFocus(null);api.current?.resetMotion();setCounts(filled());setActive([]);setMenu(false);notify('每张图册已恢复为 1 个')}
@@ -42,8 +76,8 @@ function App(){
    <div className="room"><Room active={active} onReady={setReady} apiRef={api} focus={focus} dragging={!!drag||!!flight} viewReset={viewReset}/></div>
    {over&&<div className="drop-label">松手吸附 · {items.find(i=>i.id===drag?.id)?.name}</div>}
   </section>
-  <section className="collection" aria-label="收集的图册"><div className="cards">{items.map(item=>{const count=counts[item.id],lit=count>0;return <button key={item.id} className={`card ${lit?'lit':'empty'} ${drag?.id===item.id?'dragging':''}`} data-item={item.id} data-count={count} aria-label={`${item.name}，数量${count}`} aria-pressed={lit} disabled={!ready||!!flight||count===0} title={item.name} onPointerDown={e=>down(e,item)} onPointerMove={move} onPointerUp={end} onPointerCancel={()=>{clearDrag();setFocus(null)}} onClick={e=>{if(Date.now()-lastDrag.current>350){const r=e.currentTarget.getBoundingClientRect();snap(item.id,{x:r.x+r.width/2,y:r.y+r.height/2})}}}><span className="card-state">×{count}</span><img src={assetUrl(`/thumbnails/${item.id}.png`)} alt={item.name} draggable="false"/></button>})}</div></section>
-  <footer><button className="reset" onClick={reset} disabled={!ready||!!flight}>重置数量</button><button className="primary" onClick={consume} disabled={!ready||exhausted||!!flight}>{exhausted?'已全部用完':'使用一张图册'}</button><small>使用图册点亮模型，图册用完后置灰</small></footer>
+  <section className="collection" ref={collection} aria-label="收集的图册"><div className="cards">{items.map(item=>{const count=counts[item.id],lit=count>0;return <button key={item.id} className={`card ${lit?'lit':'empty'} ${drag?.id===item.id?'dragging':''}`} data-item={item.id} data-count={count} aria-label={`${item.name}，数量${count}`} aria-pressed={lit} disabled={!ready||!!flight||count===0} title={item.name} onPointerDown={e=>down(e,item)} onPointerMove={e=>{if(e.pointerType!=='touch')move(e)}} onPointerUp={e=>{if(e.pointerType!=='touch')end(e)}} onPointerCancel={e=>{if(e.pointerType!=='touch'){clearDrag();setFocus(null)}}} onClick={e=>{if(Date.now()-lastDrag.current>350){const r=e.currentTarget.getBoundingClientRect();snap(item.id,{x:r.x+r.width/2,y:r.y+r.height/2})}}}><span className="card-state">×{count}</span><img src={assetUrl(`/thumbnails/${item.id}.png`)} alt={item.name} draggable="false"/></button>})}</div></section>
+  <footer><button className="reset" onClick={reset} disabled={!ready||!!flight}>重置数量</button><button className="primary" onClick={consume} disabled={!ready||exhausted||!!flight}>{exhausted?'已全部用完':'使用一张图册'}</button></footer>
   <div className={`toast ${toast?'visible':''}`} role="status">{toast}</div>
   {drag&&<div className="drag-preview" style={{left:drag.x,top:drag.y}}><img src={assetUrl(`/thumbnails/${drag.id}.png`)} alt=""/></div>}
   {flight&&<div className={`snap-flight ${flight.arrived?'arrived':''}`} data-testid="snap-flight" data-target={flight.id} style={{left:flight.arrived?flight.target.x:flight.start.x,top:flight.arrived?flight.target.y:flight.start.y}}><img src={assetUrl(`/thumbnails/${flight.id}.png`)} alt=""/></div>}

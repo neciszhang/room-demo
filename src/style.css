@@ -9,3 +9,18 @@ header{height:62px;padding:13px 14px 5px;justify-content:flex-start;gap:8px}.bac
 /* Lift small previews while keeping zero-quantity cards neutral. */
 .card img,.drag-preview img,.snap-flight img{filter:brightness(1.12) contrast(1.06) saturate(1.08) drop-shadow(0 4px 2px #81501413)}
 .card.empty img{filter:grayscale(1) brightness(1.18) opacity(.55)}
+
+/* Viewport layout: only the inventory scrolls; actions remain at the bottom. */
+html,body,#root{height:100%;overflow:hidden}
+body{padding:0}
+.page{height:100vh;height:100dvh;min-height:0;display:flex;flex-direction:column;border-radius:0}
+header{flex:none;height:52px;padding:7px 14px 3px}
+.hero{flex:none;height:clamp(220px,46dvh,350px)}
+.collection{flex:1;min-height:0;overflow-y:auto;overscroll-behavior-y:contain;padding:4px 9px 0;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.collection::-webkit-scrollbar{display:none}
+.cards{padding-bottom:14px}
+.card{touch-action:pan-y;-webkit-touch-callout:none}
+footer{flex:none;position:relative;z-index:6;padding:12px 9px max(18px,env(safe-area-inset-bottom));background:#ffc881}
+footer::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;background:linear-gradient(transparent,#ffc881);pointer-events:none}
+.toast{bottom:88px}
+@media(max-height:550px){.hero{height:38dvh;min-height:150px}header{height:44px}footer{padding-top:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}footer button{height:40px}}
