@@ -1,0 +1,199 @@
+{
+  "version": 1,
+  "model": "/models/room-optimized.glb",
+  "inventory": [
+    {
+      "id": "wall",
+      "name": "暖暖背景墙",
+      "hint": "为小屋添上温柔底色"
+    },
+    {
+      "id": "picture",
+      "name": "星星画框",
+      "hint": "收藏一幅好心情"
+    },
+    {
+      "id": "succulent",
+      "name": "元气多肉",
+      "hint": "每个角落都生机满满"
+    },
+    {
+      "id": "trailing",
+      "name": "垂吊绿植",
+      "hint": "让绿意悄悄蔓延"
+    },
+    {
+      "id": "cat",
+      "name": "贪睡小猫",
+      "hint": "嘘，它正做着甜甜的梦"
+    },
+    {
+      "id": "tree",
+      "name": "猫咪乐园",
+      "hint": "给小猫一个专属角落"
+    },
+    {
+      "id": "lamp",
+      "name": "晚安落地灯",
+      "hint": "点一盏属于自己的暖光"
+    },
+    {
+      "id": "chair",
+      "name": "云朵躺椅",
+      "hint": "把疲惫交给柔软"
+    },
+    {
+      "id": "table",
+      "name": "午后小桌",
+      "hint": "留一点时间给自己"
+    },
+    {
+      "id": "drink",
+      "name": "橙子气泡水",
+      "hint": "补充一杯快乐能量"
+    },
+    {
+      "id": "rug",
+      "name": "蜜桃地毯",
+      "hint": "让每一步都柔软"
+    },
+    {
+      "id": "books",
+      "name": "枕边故事",
+      "hint": "翻开下一页的小确幸"
+    },
+    {
+      "id": "star",
+      "name": "听歌小星星",
+      "hint": "让快乐成为房间的主角"
+    },
+    {
+      "id": "phone",
+      "name": "复古电话",
+      "hint": "接听来自快乐的来电"
+    },
+    {
+      "id": "music",
+      "name": "轻盈音符",
+      "hint": "让喜欢的旋律飘起来"
+    },
+    {
+      "id": "flower",
+      "name": "幸运小花",
+      "hint": "今天也有好事发生"
+    }
+  ],
+  "camera": {
+    "position": [
+      1.05,
+      6,
+      12
+    ],
+    "target": [
+      0,
+      2.35,
+      0.1
+    ],
+    "frameWidth": 7.8,
+    "minFrameHeight": 6.8
+  },
+  "collectibles": {
+    "tree": {
+      "root": "collectible-tree",
+      "activate": "tree.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "music": {
+      "root": "collectible-music",
+      "activate": "music.activate",
+      "lighting": "dynamic",
+      "idle": "music.idle_active"
+    },
+    "picture": {
+      "root": "collectible-picture",
+      "activate": "picture.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "wall": {
+      "root": "collectible-wall",
+      "activate": "wall.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "drink": {
+      "root": "collectible-drink",
+      "activate": "drink.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "star": {
+      "root": "collectible-star",
+      "activate": "star.activate",
+      "lighting": "dynamic",
+      "idle": "star.idle_active",
+      "baseColorMap": "/models/star-albedo-vivid.png"
+    },
+    "chair": {
+      "root": "collectible-chair",
+      "activate": "chair.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "cat": {
+      "root": "collectible-cat",
+      "activate": "cat.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "phone": {
+      "root": "collectible-phone",
+      "activate": "phone.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "lamp": {
+      "root": "collectible-lamp",
+      "activate": "lamp.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "succulent": {
+      "root": "collectible-succulent",
+      "activate": "succulent.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "trailing": {
+      "root": "collectible-trailing",
+      "activate": "trailing.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "table": {
+      "root": "collectible-table",
+      "activate": "table.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "books": {
+      "root": "collectible-books",
+      "activate": "books.activate",
+      "lighting": "baked",
+      "idle": null
+    },
+    "flower": {
+      "root": "collectible-flower",
+      "activate": "flower.activate",
+      "lighting": "dynamic",
+      "idle": "flower.idle_active"
+    },
+    "rug": {
+      "root": "collectible-rug",
+      "activate": "rug.activate",
+      "lighting": "baked",
+      "idle": null
+    }
+  }
+}

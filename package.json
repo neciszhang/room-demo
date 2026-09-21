@@ -1,0 +1,22 @@
+{
+  "name": "room-demo",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5198",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0 --port 5198"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^8.15.16",
+    "@react-three/drei": "^9.99.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "three": "^0.164.1"
+  },
+  "devDependencies": {
+    "vite": "^5.1.0",
+    "@vitejs/plugin-react": "^4.2.1"
+  }
+}
