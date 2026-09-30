@@ -1,0 +1,14 @@
+[
+  {
+    "id": "original-room",
+    "label": "原小屋",
+    "route": "/",
+    "manifest": "original-room/scene.manifest.json"
+  },
+  {
+    "id": "star-reading",
+    "label": "星星阅读角",
+    "route": "/star-reading",
+    "manifest": "star-reading/scene.manifest.json"
+  }
+]

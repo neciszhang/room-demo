@@ -1,0 +1,655 @@
+{
+  "schemaVersion": 1,
+  "profile": "collectible-scene-v1",
+  "sceneId": "original-room",
+  "displayName": "原小屋",
+  "storageKey": "0918-light-up:counts:v4",
+  "revision": 1,
+  "model": {
+    "url": "../models/room-optimized.glb",
+    "compression": "meshopt",
+    "sha256": "c9b8da381f1d006a860be3f4d8b447204c0a766578a76a26b842312263dc88ff"
+  },
+  "rendering": {
+    "profile": "baked-lightmap-dynamic",
+    "toneMapping": "agx",
+    "exposure": 1.35,
+    "clayColor": "#f1e5d5",
+    "lightMapIntensity": 12.566370614359172,
+    "contrast": 1.1,
+    "colorGrade": {
+      "saturation": 19,
+      "gamma": 0.79,
+      "inputWhite": 242,
+      "brightness": 3,
+      "contrast": 12
+    },
+    "lighting": {
+      "ambient": 1.05,
+      "hemisphere": {
+        "sky": "#fff6e7",
+        "ground": "#b29a82",
+        "intensity": 1.2
+      },
+      "key": {
+        "position": [
+          -3,
+          7,
+          5
+        ],
+        "intensity": 3,
+        "color": "#fff1db"
+      },
+      "fill": {
+        "position": [
+          4,
+          4,
+          2
+        ],
+        "intensity": 0.6,
+        "color": "#ffe4c9"
+      }
+    }
+  },
+  "camera": {
+    "position": [
+      1.05,
+      6,
+      12
+    ],
+    "target": [
+      0,
+      2.35,
+      0.1
+    ],
+    "frameWidth": 7.8,
+    "minFrameHeight": 6.8,
+    "minPolarAngle": 0.95,
+    "maxPolarAngle": 1.45
+  },
+  "assets": [
+    {
+      "id": "wall",
+      "label": "暖暖背景墙",
+      "order": 1,
+      "node": "collectible-wall",
+      "motionNode": "collectible-wall",
+      "thumbnail": "../thumbnails/wall.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "wall.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.012",
+          "material": "Material.041",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/22.jpg",
+          "inactiveTexture": "../lightmaps-clay/22.jpg"
+        },
+        {
+          "node": "Platform_Base",
+          "material": "MAT_Wood_Dark_Edge.001",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/23.jpg",
+          "inactiveTexture": "../lightmaps-clay/23.jpg"
+        },
+        {
+          "node": "Platform_Top",
+          "material": "MAT_Warm_Orange_Wood.005",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/24.jpg",
+          "inactiveTexture": "../lightmaps-clay/24.jpg"
+        }
+      ],
+      "anchor": {
+        "nodes": [
+          "node_0.012"
+        ],
+        "relative": [
+          0.5,
+          1,
+          0.5
+        ],
+        "offset": [
+          0,
+          -0.25,
+          0
+        ]
+      }
+    },
+    {
+      "id": "picture",
+      "label": "星星画框",
+      "order": 2,
+      "node": "collectible-picture",
+      "motionNode": "collectible-picture",
+      "thumbnail": "../thumbnails/picture.png",
+      "demoCount": 9,
+      "lighting": "baked",
+      "clayDetail": 0.7,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "picture.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "Picture_Artwork",
+          "material": "MAT_Picture_Artwork.001",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/00.jpg",
+          "inactiveTexture": "../lightmaps-clay/00.jpg"
+        },
+        {
+          "node": "Picture_Frame",
+          "material": "MAT_Frame.001",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/25.jpg",
+          "inactiveTexture": "../lightmaps-clay/25.jpg"
+        },
+        {
+          "node": "Picture_Mat",
+          "material": "MAT_Paper.001",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/26.jpg",
+          "inactiveTexture": "../lightmaps-clay/26.jpg"
+        }
+      ]
+    },
+    {
+      "id": "succulent",
+      "label": "元气多肉",
+      "order": 3,
+      "node": "collectible-succulent",
+      "motionNode": "collectible-succulent",
+      "thumbnail": "../thumbnails/succulent.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "succulent.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "08_GROUND_NO_SHADOW_00",
+          "material": "Material.027",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/08.jpg",
+          "inactiveTexture": "../lightmaps-clay/08.jpg"
+        },
+        {
+          "node": "08_TOP_LARGE_NO_SHADOW_00",
+          "material": "Material.028",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/09.jpg",
+          "inactiveTexture": "../lightmaps-clay/09.jpg"
+        },
+        {
+          "node": "08_TOP_SMALL_NO_SHADOW_00",
+          "material": "Material.029",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/10.jpg",
+          "inactiveTexture": "../lightmaps-clay/10.jpg"
+        }
+      ],
+      "anchor": {
+        "nodes": [
+          "08_GROUND_NO_SHADOW_00"
+        ]
+      }
+    },
+    {
+      "id": "trailing",
+      "label": "垂吊绿植",
+      "order": 4,
+      "node": "collectible-trailing",
+      "motionNode": "collectible-trailing",
+      "thumbnail": "../thumbnails/trailing.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "trailing.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "09_TRAILING_NO_SHADOW_00",
+          "material": "Material.030",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/11.jpg",
+          "inactiveTexture": "../lightmaps-clay/11.jpg"
+        }
+      ]
+    },
+    {
+      "id": "cat",
+      "label": "贪睡小猫",
+      "order": 5,
+      "node": "collectible-cat",
+      "motionNode": "collectible-cat",
+      "thumbnail": "../thumbnails/cat.png",
+      "demoCount": 9,
+      "lighting": "baked",
+      "clayDetail": 0.25,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "cat.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "03_CAT_NO_SHADOW_00",
+          "material": "Material.025",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/06.jpg",
+          "inactiveTexture": "../lightmaps-clay/06.jpg"
+        }
+      ]
+    },
+    {
+      "id": "tree",
+      "label": "猫咪乐园",
+      "order": 6,
+      "node": "collectible-tree",
+      "motionNode": "collectible-tree",
+      "thumbnail": "../thumbnails/tree.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "tree.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "CatTree_Orange_Brick_Base",
+          "material": "MAT_Warm_Orange_Wood.001",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/01.jpg",
+          "inactiveTexture": "../lightmaps-clay/01.jpg"
+        },
+        {
+          "node": "node_0.003",
+          "material": "Material.036",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/17.jpg",
+          "inactiveTexture": "../lightmaps-clay/17.jpg"
+        }
+      ]
+    },
+    {
+      "id": "lamp",
+      "label": "晚安落地灯",
+      "order": 7,
+      "node": "collectible-lamp",
+      "motionNode": "collectible-lamp",
+      "thumbnail": "../thumbnails/lamp.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "lamp.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.005",
+          "material": "Material.037",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/18.jpg",
+          "inactiveTexture": "../lightmaps-clay/18.jpg"
+        }
+      ],
+      "anchor": {
+        "relative": [
+          0.5,
+          1,
+          0.5
+        ],
+        "offset": [
+          0,
+          -0.28,
+          0
+        ]
+      }
+    },
+    {
+      "id": "chair",
+      "label": "云朵躺椅",
+      "order": 8,
+      "node": "collectible-chair",
+      "motionNode": "collectible-chair",
+      "thumbnail": "../thumbnails/chair.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "chair.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.001",
+          "material": "Material.035",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/16.jpg",
+          "inactiveTexture": "../lightmaps-clay/16.jpg"
+        }
+      ],
+      "anchor": {
+        "relative": [
+          0.5,
+          0,
+          1
+        ],
+        "offset": [
+          0,
+          0.55,
+          -0.22
+        ]
+      }
+    },
+    {
+      "id": "table",
+      "label": "午后小桌",
+      "order": 9,
+      "node": "collectible-table",
+      "motionNode": "collectible-table",
+      "thumbnail": "../thumbnails/table.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "table.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.009",
+          "material": "Material.039",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/20.jpg",
+          "inactiveTexture": "../lightmaps-clay/20.jpg"
+        }
+      ]
+    },
+    {
+      "id": "drink",
+      "label": "橙子气泡水",
+      "order": 10,
+      "node": "collectible-drink",
+      "motionNode": "collectible-drink",
+      "thumbnail": "../thumbnails/drink.png",
+      "demoCount": 9,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "drink.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.006",
+          "material": "Material.038",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/19.jpg",
+          "inactiveTexture": "../lightmaps-clay/19.jpg"
+        },
+        {
+          "node": "Right_Brick_Stand_Lower",
+          "material": "MAT_Warm_Orange_Wood.002",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/02.jpg",
+          "inactiveTexture": "../lightmaps-clay/02.jpg"
+        },
+        {
+          "node": "Right_Brick_Stand_Middle",
+          "material": "MAT_Warm_Orange_Wood.003",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/03.jpg",
+          "inactiveTexture": "../lightmaps-clay/03.jpg"
+        },
+        {
+          "node": "Right_Brick_Stand_Top",
+          "material": "MAT_Warm_Orange_Wood.004",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/04.jpg",
+          "inactiveTexture": "../lightmaps-clay/04.jpg"
+        }
+      ],
+      "anchor": {
+        "nodes": [
+          "node_0.006"
+        ]
+      }
+    },
+    {
+      "id": "rug",
+      "label": "蜜桃地毯",
+      "order": 11,
+      "node": "collectible-rug",
+      "motionNode": "collectible-rug",
+      "thumbnail": "../thumbnails/rug.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "rug.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "node_0.011",
+          "material": "Material.040",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/21.jpg",
+          "inactiveTexture": "../lightmaps-clay/21.jpg"
+        }
+      ],
+      "anchor": {
+        "relative": [
+          0.5,
+          1,
+          1
+        ],
+        "offset": [
+          0,
+          0.02,
+          -0.16
+        ]
+      }
+    },
+    {
+      "id": "books",
+      "label": "枕边故事",
+      "order": 12,
+      "node": "collectible-books",
+      "motionNode": "collectible-books",
+      "thumbnail": "../thumbnails/books.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "books.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "12A_ORANGE_BOOK_00",
+          "material": "Material.031",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/12.jpg",
+          "inactiveTexture": "../lightmaps-clay/12.jpg"
+        },
+        {
+          "node": "12B_CREAM_BOOK_00",
+          "material": "Material.032",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/13.jpg",
+          "inactiveTexture": "../lightmaps-clay/13.jpg"
+        },
+        {
+          "node": "12C_PINK_BOOK_00",
+          "material": "Material.033",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/14.jpg",
+          "inactiveTexture": "../lightmaps-clay/14.jpg"
+        }
+      ]
+    },
+    {
+      "id": "star",
+      "label": "听歌小星星",
+      "order": 13,
+      "node": "collectible-star",
+      "motionNode": "collectible-star",
+      "thumbnail": "../thumbnails/star.png",
+      "demoCount": 1,
+      "lighting": "dynamic",
+      "clayDetail": 0.45,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "star.activate",
+        "idle": "star.idle_active",
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "01_STAR_NO_SHADOW_00",
+          "material": "Star_Body_Golden_Artboard1.001",
+          "texCoord": 0
+        }
+      ],
+      "selectiveColor": {
+        "cmy": [
+          -0.44,
+          -0.42,
+          0.8
+        ],
+        "black": 0.52
+      }
+    },
+    {
+      "id": "phone",
+      "label": "复古电话",
+      "order": 14,
+      "node": "collectible-phone",
+      "motionNode": "collectible-phone",
+      "thumbnail": "../thumbnails/phone.png",
+      "demoCount": 1,
+      "lighting": "baked",
+      "clayDetail": 0.45,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "phone.activate",
+        "idle": null,
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "05_PHONE_NO_SHADOW_00",
+          "material": "Material.026",
+          "texCoord": 0,
+          "activeLightmap": "../lightmaps/07.jpg",
+          "inactiveTexture": "../lightmaps-clay/07.jpg"
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "label": "轻盈音符",
+      "order": 15,
+      "node": "collectible-music",
+      "motionNode": "collectible-music",
+      "thumbnail": "../thumbnails/music.png",
+      "demoCount": 1,
+      "lighting": "dynamic",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "music.activate",
+        "idle": "music.idle_active",
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "Music_Note_Beam",
+          "material": "MAT_Mint_Decor.005",
+          "texCoord": 0
+        },
+        {
+          "node": "Music_Note_Head_L",
+          "material": "MAT_Mint_Decor.001",
+          "texCoord": 0
+        },
+        {
+          "node": "Music_Note_Head_R",
+          "material": "MAT_Mint_Decor.002",
+          "texCoord": 0
+        },
+        {
+          "node": "Music_Note_Stem_L",
+          "material": "MAT_Mint_Decor.003",
+          "texCoord": 0
+        },
+        {
+          "node": "Music_Note_Stem_R",
+          "material": "MAT_Mint_Decor.004",
+          "texCoord": 0
+        }
+      ]
+    },
+    {
+      "id": "flower",
+      "label": "幸运小花",
+      "order": 16,
+      "node": "collectible-flower",
+      "motionNode": "collectible-flower",
+      "thumbnail": "../thumbnails/flower.png",
+      "demoCount": 1,
+      "lighting": "dynamic",
+      "clayDetail": 0,
+      "activationEnd": "rest",
+      "animations": {
+        "activate": "flower.activate",
+        "idle": "flower.idle_active",
+        "deactivate": null
+      },
+      "parts": [
+        {
+          "node": "14_Flower_GLBnode_0",
+          "material": "Material.034",
+          "texCoord": 0
+        }
+      ]
+    }
+  ]
+}

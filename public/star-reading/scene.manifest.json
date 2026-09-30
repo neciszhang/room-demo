@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "profile": "collectible-scene-v1",
+  "sceneId": "star-reading",
+  "displayName": "星星的阅读角",
+  "revision": 1,
+  "model": {
+    "url": "scene.glb",
+    "compression": "draco",
+    "sha256": "872f8b64ca55b33dc68ceae343fae507cfe313285024526693d5d51c321ac803"
+  },
+  "rendering": {
+    "profile": "baked-unlit",
+    "textureColorSpace": "srgb",
+    "toneMapping": "none",
+    "inactiveAppearance": "clay",
+    "activeAppearance": "color"
+  },
+  "limits": {
+    "maxTextureSize": 1024,
+    "targetTriangles": 100000,
+    "maxTriangles": 200000
+  },
+  "camera": {
+    "position": [
+      -0.4000000059604645,
+      3,
+      5.199999809265137
+    ],
+    "target": [
+      0.028613775968551636,
+      0.6675429344177246,
+      0.016764163970947266
+    ],
+    "frameHeight": 2.5
+  },
+  "assets": [
+    {
+      "id": "asset_001",
+      "label": "阅读小星星",
+      "order": 1,
+      "node": "asset_001",
+      "motionNode": "asset_001__motion",
+      "thumbnail": "thumbnails/asset_001.webp",
+      "parts": [
+        {
+          "node": "asset_001__mesh_01",
+          "material": "asset_001__mat_01",
+          "inactiveTexture": "textures/clay/asset_001__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_002",
+      "label": "小熊沙发",
+      "order": 2,
+      "node": "asset_002",
+      "motionNode": "asset_002__motion",
+      "thumbnail": "thumbnails/asset_002.webp",
+      "parts": [
+        {
+          "node": "asset_002__mesh_01",
+          "material": "asset_002__mat_01",
+          "inactiveTexture": "textures/clay/asset_002__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_003",
+      "label": "星光云朵",
+      "order": 3,
+      "node": "asset_003",
+      "motionNode": "asset_003__motion",
+      "thumbnail": "thumbnails/asset_003.webp",
+      "parts": [
+        {
+          "node": "asset_003__mesh_01",
+          "material": "asset_003__mat_01",
+          "inactiveTexture": "textures/clay/asset_003__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_004",
+      "label": "蘑菇灯",
+      "order": 4,
+      "node": "asset_004",
+      "motionNode": "asset_004__motion",
+      "thumbnail": "thumbnails/asset_004.webp",
+      "parts": [
+        {
+          "node": "asset_004__mesh_01",
+          "material": "asset_004__mat_01",
+          "inactiveTexture": "textures/clay/asset_004__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_005",
+      "label": "香氛瓶",
+      "order": 5,
+      "node": "asset_005",
+      "motionNode": "asset_005__motion",
+      "thumbnail": "thumbnails/asset_005.webp",
+      "parts": [
+        {
+          "node": "asset_005__mesh_01",
+          "material": "asset_005__mat_01",
+          "inactiveTexture": "textures/clay/asset_005__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_006",
+      "label": "粉色地毯",
+      "order": 6,
+      "node": "asset_006",
+      "motionNode": "asset_006__motion",
+      "thumbnail": "thumbnails/asset_006.webp",
+      "parts": [
+        {
+          "node": "asset_006__mesh_01",
+          "material": "asset_006__mat_01",
+          "inactiveTexture": "textures/clay/asset_006__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_007",
+      "label": "蓝色故事书",
+      "order": 7,
+      "node": "asset_007",
+      "motionNode": "asset_007__motion",
+      "thumbnail": "thumbnails/asset_007.webp",
+      "parts": [
+        {
+          "node": "asset_007__mesh_01",
+          "material": "asset_007__mat_01",
+          "inactiveTexture": "textures/clay/asset_007__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_008",
+      "label": "绿色故事书",
+      "order": 8,
+      "node": "asset_008",
+      "motionNode": "asset_008__motion",
+      "thumbnail": "thumbnails/asset_008.webp",
+      "parts": [
+        {
+          "node": "asset_008__mesh_01",
+          "material": "asset_008__mat_01",
+          "inactiveTexture": "textures/clay/asset_008__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    },
+    {
+      "id": "asset_009",
+      "label": "粉色故事书",
+      "order": 9,
+      "node": "asset_009",
+      "motionNode": "asset_009__motion",
+      "thumbnail": "thumbnails/asset_009.webp",
+      "parts": [
+        {
+          "node": "asset_009__mesh_01",
+          "material": "asset_009__mat_01",
+          "inactiveTexture": "textures/clay/asset_009__mat_01.jpg",
+          "texCoord": 0
+        }
+      ],
+      "animations": {
+        "activate": null,
+        "idle": null,
+        "deactivate": null
+      }
+    }
+  ]
+}

@@ -24,3 +24,10 @@ footer{flex:none;position:relative;z-index:6;padding:12px 9px max(18px,env(safe-
 footer::before{content:"";position:absolute;left:0;right:0;top:-18px;height:18px;background:linear-gradient(transparent,#ffc881);pointer-events:none}
 .toast{bottom:88px}
 @media(max-height:550px){.hero{height:38dvh;min-height:150px}header{height:44px}footer{padding-top:8px;padding-bottom:max(8px,env(safe-area-inset-bottom))}footer button{height:40px}}
+
+/* Keep scene navigation visible beside the existing menu on mobile. */
+.scene-link{margin-left:auto;flex-shrink:0;padding:7px 9px;border:1px solid #ffffff60;border-radius:6px;color:#fff;background:#d1344040;font-size:11px;line-height:16px;text-decoration:none}
+.scene-link:focus-visible{outline:3px solid #fff0b8;outline-offset:2px}
+.scene-link+.more{margin-left:0;flex-shrink:0}
+.menu a{display:block;padding:12px 18px;font-size:12px;color:#804527;text-decoration:none}
+.menu a:focus-visible{outline:2px solid #9b4b1f;outline-offset:-2px}
